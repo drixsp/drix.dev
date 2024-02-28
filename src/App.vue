@@ -1,25 +1,24 @@
 <template>
-    <MainNavbar />
+    <Navbar />
 </template>
 
 <script>
-    import MainNavbar from './components/MainNavbar.vue'
+    import Navbar from './components/Navbar.vue'
 
     export default {
         name: 'App',
         components: {
-            MainNavbar
+            Navbar
         }
     }
 </script>
 
 <style lang="scss">
-    // #app {
-    //     font-family: Avenir, Helvetica, Arial, sans-serif;
-    //     -webkit-font-smoothing: antialiased;
-    //     -moz-osx-font-smoothing: grayscale;
-    //     text-align: center;
-    //     color: #2c3e50;
-    //     margin-top: 60px;
-    // }
+    #app {
+        width: 100%;
+        height: 100vh;
+        background: rgb(35, 34, 36) !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 </style>

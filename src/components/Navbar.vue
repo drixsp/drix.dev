@@ -2,7 +2,9 @@
     <nav id="nav">
         <ul>
             <li>
-                DP
+                <p>
+                    DP
+                </p>
             </li>
             <li>
                 <div class="circle"></div>
@@ -13,7 +15,8 @@
 
 <script>
     export default {
-        name: 'MainNavbar'
+        // eslint-disable-next-line vue/multi-word-component-names
+        name: 'Navbar'
     }
 </script>
 
@@ -21,12 +24,14 @@
     #nav {
         padding: 0 150px;
         height: 60px;
-        // background: rgba(247, 250, 252, 0.01);
+        background: rgba(247, 250, 252, .1);
         backdrop-filter: blur(50px);
-        border: 1px solid red;
         display: flex;
         align-items: center;
-        background: pink;
+
+        @media only screen and (max-width: 744px) {
+            padding: 0 20px;
+        }
 
         ul {
             width: 100%;
@@ -34,13 +39,18 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            color: white;
+
+            p {
+                font-size: 20px;
+            }
         }
 
         .circle {
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: red;
+            background: white;
         }
     }
 </style>
