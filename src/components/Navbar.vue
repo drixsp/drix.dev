@@ -20,7 +20,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
     #nav {
         padding: 0 150px;
         height: 60px;
