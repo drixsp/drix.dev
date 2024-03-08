@@ -1,6 +1,7 @@
 <template>
     <div class="content">
         <Navbar />
+        <Home />
     </div>
     <Background />
 </template>
@@ -8,12 +9,14 @@
 <script>
     import Navbar from './components/Navbar.vue'
     import Background from './components/Background.vue'
+    import Home from './pages/Home.vue'
 
     export default {
         name: 'App',
         components: {
             Navbar,
-            Background
+            Background,
+            Home
         }
     }
 </script>
