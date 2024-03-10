@@ -24,10 +24,12 @@
     #nav {
         padding: 0 150px;
         height: 60px;
-        background: rgba(247, 250, 252, .1);
+        background: rgba(247, 250, 252, .05);
         backdrop-filter: blur(50px);
         display: flex;
         align-items: center;
+        position: sticky;
+        top: 0;
 
         @media only screen and (max-width: 744px) {
             padding: 0 20px;
