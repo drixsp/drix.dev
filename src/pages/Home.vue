@@ -8,7 +8,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit
             </h1>
             <h1 class="h1 regular">
-                Lorem ipsum dolor sit amet
+                Lorem ipsum dolor sit amet consectetur adipisicing elit
             </h1>
         </div>
         <main>
