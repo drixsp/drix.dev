@@ -70,7 +70,7 @@
                 height: 200px;
                 border-radius: 50%;
                 rotate: -135deg;
-                filter: blur(150px);
+                // filter: blur(150px);
 
                 @media only screen and (max-width: 375px) {
                     top: 0;

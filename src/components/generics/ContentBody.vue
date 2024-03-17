@@ -11,6 +11,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import 'src/stylesheets/styles.scss';
+
     .container {
         width: 100%;
         height: calc(100vh - 60px);
@@ -18,5 +20,10 @@
         padding-block: 80px;
         width: min(calc(100vw - 120px), 1000px);
         color: white;
+
+        @media #{$mobile} {
+            padding: 40px 36px;
+            width: 100%;
+        }
     }
 </style>

@@ -6,39 +6,40 @@
                     Welcome! I'm Drix.
                 </h3>
                 <h1 class="h1 regular">
-                    Born and raised in Cebu, Philippines.
+                    Product Designer at
+                        <a href="https://hqzen.com/" target="blank">HQZen</a>
                 </h1>
                 <h1 class="h1 regular">
-                    Product Designer at HQZen
+                    Born and raised in Cebu, Philippines.
                 </h1>
             </header>
             <main class="section-main">
                 <ul class="nav-list">
                     <li>
                         <div class="nav-list__item">
-                            <p class="h2">Works</p>
+                            <h2 class="regular">Works</h2>
                             <i class="mdi mdi-arrow-right"></i>
                         </div>
                     </li>
                     <li>
                         <div class="nav-list__item">
-                            <p class="h2">Resume</p>
+                            <h2 class="regular">Resume</h2>
                             <i class="mdi mdi-arrow-right"></i>
                         </div>
                     </li>
                     <li>
                         <div class="nav-list__item">
-                            <p class="h2">Contact</p>
+                            <h2 class="regular">Contact</h2>
                             <i class="mdi mdi-arrow-right"></i>
                         </div>
                     </li>
                 </ul>
             </main>
-            <footer class="section-footer">
+            <!-- <footer class="section-footer">
                 <p class="c-tertiary">
                     Designed and developed by yours truly.
                 </p>
-            </footer>
+            </footer> -->
         </div>
     </ContentBody>
 </template>
@@ -64,6 +65,16 @@
         flex-direction: column;
         gap: 80px;
 
+        // .section responsiveness
+        @media #{$mobile} {
+            width: 100%;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
         &-top {
             @include flex-column();
             display: flex;
@@ -78,13 +89,36 @@
         &-main {
             .nav-list {
                 @include flex-column();
-                gap: 24px;
+                gap: 16px;
                 width: 50%;
+
+                // &__nav-list responsiveness
+                @media #{$mobile} {
+                    width: 100%;
+                }
 
                 &__item {
                     display: flex;
                     justify-content: space-between;
-                    font-size: 36px;
+                    align-items: center;
+                    padding: 12px;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    transition: .2s all ease-in-out;
+
+                    i {
+                        font-size: 24px;
+                    }
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.1);
+                        transition: .2s all ease-in-out;
+
+                        i {
+                            transition: .2s all ease-in-out;
+                            transform: translateX(4px);
+                        }
+                    }
                 }
             }
         }
