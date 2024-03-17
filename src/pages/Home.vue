@@ -16,19 +16,19 @@
                 <ul class="nav-list">
                     <li>
                         <div class="nav-list__item">
-                            <p>Works</p>
+                            <p class="h2">Works</p>
                             <i class="mdi mdi-arrow-right"></i>
                         </div>
                     </li>
                     <li>
                         <div class="nav-list__item">
-                            <p>Resume</p>
+                            <p class="h2">Resume</p>
                             <i class="mdi mdi-arrow-right"></i>
                         </div>
                     </li>
                     <li>
                         <div class="nav-list__item">
-                            <p>Contact</p>
+                            <p class="h2">Contact</p>
                             <i class="mdi mdi-arrow-right"></i>
                         </div>
                     </li>
@@ -57,7 +57,7 @@
 </script>
 
 <style lang="scss" scoped>
-    // @import 'src/stylesheets/styles.scss';
+    @import 'src/stylesheets/styles.scss';
 
     .section {
         display: flex;
@@ -65,7 +65,7 @@
         gap: 80px;
 
         &-top {
-            // @include flex-column();
+            @include flex-column();
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -77,9 +77,7 @@
 
         &-main {
             .nav-list {
-                // @include flex-column();
-                display: flex;
-                flex-direction: column;
+                @include flex-column();
                 gap: 24px;
                 width: 50%;
 
