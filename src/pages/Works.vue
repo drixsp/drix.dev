@@ -2,11 +2,14 @@
     <ContentBody>
         <ul class="work-list">
             <li
-                v-for="i in 6"
+                v-for="i in imageLinks"
                 :key="i"
                 class="work-list__item"
             >
-                <div class="work-list__item-image"></div>
+                <div class="work-list__item-image">
+                    <!-- @dev TODO: Dynamic image and alt should be contextual -->
+                    <img :src="i">
+                </div>
                 <p class="work-list__item-title semibold">
                     ElevateEase: Streamlining User Journeys for Seamless Experiences and Lorem ipsum dolor sit amet
                 </p>
@@ -27,7 +30,21 @@
 
         components: {
             ContentBody
-        }
+        },
+
+        data() {
+            return {
+                imageLinks: [
+                    'https://via.placeholder.com/800x600',
+                    'https://via.placeholder.com/1200x800',
+                    'https://via.placeholder.com/600x400',
+                    'https://avatars.githubusercontent.com/u/50797860?v=4',
+                    'https://via.placeholder.com/1000x500',
+                    'https://via.placeholder.com/400x800'
+                ],
+                imageUrl: []
+            };
+        },
     }
 </script>
 
@@ -41,13 +58,16 @@
         grid-row-gap: 40px;
         line-height: 1.5;
 
+        @media #{$tablet} {
+            @include flex-column();
+        }
+
         &__item {
             @include flex-column();
             gap: 16px;
-            // border: 2px dashed red;
-            padding: 12px;
+            padding: 16px;
             cursor: pointer;
-            border-radius: 4px;
+            border-radius: 8px;
 
             &:hover {
                 background: rgba(255, 255, 255, 0.1);
@@ -55,15 +75,24 @@
             }
 
             &-image {
-                width: 100%;
+                @include flex-align-center();
                 height: 200px;
                 background: $gray-50;
+                overflow: hidden;
+                border-radius: 8px;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             &-title,
             &-description {
                 @include clamp-line(2);
             }
+
         }
     }
 </style>
