@@ -15,7 +15,9 @@
             </header>
             <main class="section-main">
                 <ul class="nav-list">
-                    <li>
+                    <li
+                        @click="goToWorks()"
+                    >
                         <div class="nav-list__item">
                             <h2 class="regular">Works</h2>
                             <i class="mdi mdi-arrow-right"></i>
@@ -53,6 +55,12 @@
 
         components: {
             ContentBody
+        },
+
+        methods: {
+            goToWork() {
+                this.$router.push('works')
+            }
         }
     }
 </script>
@@ -72,7 +80,7 @@
 
         a {
             text-decoration: none;
-            color: white;
+            color: $white;
         }
 
         &-top {

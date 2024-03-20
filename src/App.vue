@@ -3,34 +3,30 @@
         <Navbar />
         <Home />
     </div>
-    <!-- <Background /> -->
 </template>
 
 <script>
     import Navbar from './components/Navbar.vue'
-    // import Background from './components/Background.vue'
     import Home from './pages/Home.vue'
 
     export default {
         name: 'App',
         components: {
             Navbar,
-            // Background,
-            Home
+            Home,
         }
     }
 </script>
 
 <style lang="scss">
-    #app {
-        width: 100%;
-        height: 100vh;
+
+    html {
         background: #171923 !important;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
     }
 
     .content {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         position: absolute;
         width: 100%;
         z-index: 2;
