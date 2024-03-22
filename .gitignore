@@ -1,6 +1,16 @@
 .DS_Store
 node_modules
 /dist
+venv
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+media
+
+# Backup files #
+*.bak
 
 
 # local env files
