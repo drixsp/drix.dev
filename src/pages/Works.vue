@@ -16,6 +16,15 @@
                 <p class="work-list__item-description t-semi-sm">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore do eiusmod tempor incididunt ut labore
                 </p>
+                <div class="work-list__item-tags">
+                    <p
+                        v-for="tag in tags"
+                        :key="tag"
+                        class="tag t-tiny"
+                    >
+                        {{ tag }}
+                    </p>
+                </div>
             </li>
         </ul>
     </ContentBody>
@@ -42,7 +51,18 @@
                     'https://via.placeholder.com/1000x500',
                     'https://via.placeholder.com/400x800'
                 ],
-                imageUrl: []
+                imageUrl: [],
+                tags: [
+                    'UX Design',
+                    'Design',
+                    'UI/UX',
+                    '2 more...',
+                    // 'Case Study',
+                    // 'CSS',
+                    // 'Frontend Development',
+                    // 'Graphic Design',
+                    // 'Branding Design'
+                ]
             };
         },
     }
@@ -91,6 +111,21 @@
             &-title,
             &-description {
                 @include clamp-line(2);
+            }
+
+            &-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+
+                .tag {
+                    background:rgba(255,255,255, 0.5);
+                    color: $white;
+                    border-radius: 4px;
+                    padding: 4px 8px;
+                    width: max-content;
+                    white-space: no-wrap;
+                }
             }
 
         }

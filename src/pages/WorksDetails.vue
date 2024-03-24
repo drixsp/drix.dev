@@ -5,6 +5,15 @@
             <h2 class="title semibold">
                 ElevateEase: Streamlining User Journeys for Seamless Experiences
             </h2>
+            <div class="tags-container">
+                <p
+                    v-for="tag in tags"
+                    :key="tag"
+                    class="tag t-tiny"
+                >
+                    {{ tag }}
+                </p>
+            </div>
         </header>
         <main class="main">
             <p class="main__text t-regular">
@@ -35,6 +44,21 @@
 
         components: {
             ContentBody
+        },
+
+        data() {
+            return {
+                tags: [
+                    'UX Design',
+                    'Design',
+                    'UI/UX',
+                    'Case Study',
+                    'CSS',
+                    'Frontend Development',
+                    'Graphic Design',
+                    'Branding Design'
+                ]
+            };
         }
     }
 </script>
@@ -81,6 +105,30 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+            max-width: 80%;
+
+            @media #{$tablet} {
+                overflow-x: scroll;
+                flex-wrap: unset;
+                max-width: unset;
+                width: 100%;
+            }
+
+            .tag {
+                background:rgba(255,255,255, 0.5);
+                color: $white;
+                border-radius: 4px;
+                padding: 4px 8px;
+                width: max-content;
+                white-space: nowrap;
+            }
         }
     }
 
