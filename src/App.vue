@@ -1,19 +1,19 @@
 <template>
     <div class="content">
         <Navbar />
-        <Home />
+        <WorksDetails />
     </div>
 </template>
 
 <script>
     import Navbar from './components/Navbar.vue'
-    import Home from './pages/Home.vue'
+    import WorksDetails from './pages/WorksDetails.vue'
 
     export default {
         name: 'App',
         components: {
             Navbar,
-            Home,
+            WorksDetails,
         }
     }
 </script>

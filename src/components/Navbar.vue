@@ -30,6 +30,7 @@
         align-items: center;
         position: sticky;
         top: 0;
+        z-index: 999;
 
         @media only screen and (max-width: 744px) {
             padding: 0 20px;
