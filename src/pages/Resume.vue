@@ -3,7 +3,6 @@
         <main class="two-grid">
             <section>
                 <ul class="company-list">
-                    <!-- @dev TODO: Dynamic list -->
                     <li
                         v-for="company in companies"
                         :key="company"
@@ -159,10 +158,11 @@
                         link: 'https://www.usc.edu.ph/academics/schools/school-of-engineering/department-of-computer-engineering',
                         roles: [
                             {
-                                name: 'Bachloer of Science in Computer Engineering',
+                                name: 'Bachelor of Science in Computer Engineering',
                                 duration: '2015 - 2020',
                                 duties: [
-                                    'Studied hardware concepts and software fundamentals. Studied hardware concepts and software fundamentals.'
+                                    'Studied hardware concepts and software fundamentals.',
+                                    'Volunteered in various school organizations and help spearhead university-wide events.'
                                 ]
                             }
                         ]
