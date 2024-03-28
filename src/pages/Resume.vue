@@ -1,7 +1,79 @@
 <template>
     <ContentBody>
         <main class="two-grid">
-            <section>
+            <section class="left">
+                <div class="avatar">
+                    <img
+                        alt="Drix"
+                        src="https://avatars.githubusercontent.com/u/50797860?v=4"
+                    >
+                    <div class="avatar-information">
+                        <h3 class="bold">
+                            Drix Lloyd Ponteres
+                        </h3>
+                        <p class="t-regular">
+                            UX Engineer
+                        </p>
+                        <p class="t-sm c-tertiary">
+                            hello@drixsp.com
+                        </p>
+                    </div>
+                </div>
+                <p class="description t-semi-sm">
+                    An individual who has a passion for design and front-end technologies with a meticulous attention to detail who is constantly looking further to improve technical and creative skills.
+                </p>
+                <div class="skills__container">
+                    <h2 class="p-h2 skills__container-name semibold">
+                        Specialties
+                    </h2>
+                    <div class="skills__container-list">
+                        <ul class="skills__container-list">
+                            <li
+                                v-for="specialty in specialties"
+                                :key="specialty"
+                                class="t-sm c-quaternary"
+                            >
+                                <p>
+                                    {{ specialty }}
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skills__container">
+                    <h2 class="p-h2 skills__container-name semibold">
+                        Others
+                    </h2>
+                    <ul class="skills__container-list">
+                        <li
+                            v-for="other in others"
+                            :key="other"
+                            class="t-sm c-quaternary"
+                        >
+                            <p>
+                                {{ other }}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="reference__container">
+                    <h2 class="p-h2 reference__container-name semibold">
+                        Character Reference
+                    </h2>
+                    <ul class="reference__container-list">
+                        <li
+                            v-for="reference in references"
+                            :key="reference"
+                            class="t-sm c-quaternary reference__container-list--item"
+                        >
+                            <p class="t-md"> {{ reference.name }} </p>
+                            <p class="t-sm c-tertiary"> {{ reference.position }}, {{ reference.company }} </p>
+                            <p class="t-sm c-tertiary"> {{ reference.contact }} </p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <section class="right">
                 <ul class="company-list">
                     <li
                         v-for="company in companies"
@@ -41,42 +113,6 @@
                     </li>
                 </ul>
             </section>
-            <section class="skills">
-                <div class="skills__container">
-                    <h2 class="p-h2 skills__container-name semibold">
-                        Specialties
-                    </h2>
-                    <div class="skills__container-list">
-                        <ul class="skills__container-list">
-                            <li
-                                v-for="specialty in specialties"
-                                :key="specialty"
-                                class="t-sm c-quaternary"
-                            >
-                                <p>
-                                    {{ specialty }}
-                                </p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="skills__container">
-                    <h2 class="p-h2 skills__container-name semibold">
-                        Others
-                    </h2>
-                    <ul class="skills__container-list">
-                        <li
-                            v-for="other in others"
-                            :key="other"
-                            class="t-sm c-quaternary"
-                        >
-                            <p>
-                                {{ other }}
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </section>
         </main>
     </ContentBody>
 </template>
@@ -100,6 +136,33 @@
                 ],
                 others: [
                     'Planning','Leadership','Product Vision','Agile Practices','Continuous Learning'
+                ],
+                info: [
+                    {
+                        name: 'Drix Lloyd Ponteres',
+                        position: 'UX Engineer',
+                        email: 'hello@drixsp.com'
+                    }
+                ],
+                references: [
+                    {
+                        name: 'Generil de los Santos',
+                        company: 'BPOSeats',
+                        contact: 'generil@bposeats.com',
+                        position: 'UX Designer'
+                    },
+                    {
+                        name: 'Louie Jay Rivas',
+                        company: 'BPOSeats',
+                        contact: 'louie@bposeats.com',
+                        position: 'Project Manager'
+                    },
+                    {
+                        name: 'Jarrhey de la Pena',
+                        company: 'Symph',
+                        contact: 'jarrhey@symph.co',
+                        position: 'CTO'
+                    }
                 ],
                 companies: [
                     {
@@ -197,66 +260,105 @@
         }
     }
 
-    .skills {
+    .left {
         @include flex-column();
         gap: 32px;
         position: sticky;
 
-        &__container {
+        .avatar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            img {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+
+            &-information {
+                @include flex-column;
+                gap: 2px;
+            }
+        }
+
+        .skills {
+            &__container {
+                @include flex-column();
+                gap: 12px;
+
+                &-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    // gap: 12px;
+                    // column-gap: 28px;
+                    // row-gap: 12px;
+                    column-gap: 20px;
+                    row-gap: 4px;
+
+                    .bullet {
+                        color: rgba(255,255,255,.2)
+                    }
+                }
+            }
+        }
+
+        .reference__container {
             @include flex-column();
             gap: 12px;
 
             &-list {
-                display: flex;
-                flex-wrap: wrap;
-                // gap: 12px;
-                column-gap: 28px;
-                row-gap: 12px;
+                @include flex-column();
+                gap: 12px;
 
-                .bullet {
-                    color: rgba(255,255,255,.2)
+                &--item {
+                    @include flex-column();
+                    gap: 4px;
                 }
             }
         }
     }
 
-    .company-list {
-        @include flex-column();
-        gap: 64px;
+    .right {
 
-        &__item {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
+        .company-list {
+            @include flex-column();
+            gap: 64px;
 
-            &-name {
-                text-decoration: underline;
-                text-transform: uppercase;
-                color: $white;
-                font-size: 24px;
-                cursor: pointer;
-
-                @media #{$tablet} {
-                    font-size: 20px;
-                }
-            }
-
-            &-content {
-                @include flex-column();
+            &__item {
+                display: flex;
+                flex-direction: column;
                 gap: 24px;
-            }
 
-            .role {
-                @include flex-column();
-                gap: 8px;
+                &-name {
+                    text-decoration: underline;
+                    text-transform: uppercase;
+                    color: $white;
+                    font-size: 24px;
+                    cursor: pointer;
 
-                &__duration {
-                    color: $gray-300;
+                    @media #{$tablet} {
+                        font-size: 20px;
+                    }
                 }
 
-                &__duties {
+                &-content {
                     @include flex-column();
-                    gap: 12px;
+                    gap: 24px;
+                }
+
+                .role {
+                    @include flex-column();
+                    gap: 8px;
+
+                    &__duration {
+                        color: $gray-300;
+                    }
+
+                    &__duties {
+                        @include flex-column();
+                        gap: 12px;
+                    }
                 }
             }
         }
