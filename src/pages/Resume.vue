@@ -5,53 +5,40 @@
                 <ul class="company-list">
                     <!-- @dev TODO: Dynamic list -->
                     <li
-                        v-for="i in 4"
-                        :key="i"
+                        v-for="company in companies"
+                        :key="company"
                         class="company-list__item"
                     >
-                        <h1 class="h1-alt company-list__item-name">
-                            HQZen.com
+                        <h1
+                            class="h1-alt company-list__item-name"
+                            @click="goToLink(company.link)"
+                        >
+                            {{ company.name }}
                         </h1>
-                        <div class="role">
-                            <p class="role__name t-md bold">
-                                Product Design Lead
-                            </p>
-                            <p class="role__duration t-regular">
-                                2022 - Present
-                            </p>
-                            <ul class="role__duties">
-                                <li>
-                                    <p class="t-regular c-tertiary">
-                                        In charge of overall product design direction.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p class="t-regular c-tertiary">
-                                        Facilitate team members progress such as appraisals, team initiatives, and activities
-                                    </p>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- <div class="role">
-                            <p class="role__name t-md bold">
-                                Product Design Lead
-                            </p>
-                            <p class="role__duration t-regular">
-                                2022 - Present
-                            </p>
-                            <ul class="role__duties">
-                                <li>
-                                    <p class="t-regular c-tertiary">
-                                        In charge of overall product design direction.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p class="t-regular c-tertiary">
-                                        In charge of overall product design direction.
-                                    </p>
-                                </li>
-                            </ul>
-                        </div> -->
+                        <ul class="company-list__item-content">
+                            <li
+                                v-for="role in company.roles"
+                                :key="role"
+                                class="role"
+                            >
+                                <p class="role__name t-md bold">
+                                    {{ role.name }}
+                                </p>
+                                <p class="role__duration t-regular">
+                                    {{ role.duration }}
+                                </p>
+                                <ul class="role__duties">
+                                    <li
+                                        v-for="duty in role.duties"
+                                        :key="duty"
+                                    >
+                                        <p class="t-regular c-tertiary">
+                                            {{ duty }}
+                                        </p>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </section>
@@ -71,9 +58,6 @@
                                     {{ specialty }}
                                 </p>
                             </li>
-                            <!-- <li class="t-sm bullet">
-                                •
-                            </li> -->
                         </ul>
                     </div>
                 </div>
@@ -117,8 +101,80 @@
                 ],
                 others: [
                     'Planning','Leadership','Product Vision','Agile Practices','Continuous Learning'
+                ],
+                companies: [
+                    {
+                        name: 'HQZen.com',
+                        link: 'https://hqzen.com/',
+                        roles: [
+                            {
+                                name: 'Product Design Lead',
+                                duration: '2022 - Present',
+                                duties: [
+                                    'In charge of overall product design direction.',
+                                    'Facilitate team members progress such as appraisals, team initiatives, and activities.'
+                                ]
+                            },
+                            {
+                                name: 'Front-end Designer / UX Engineer',
+                                duration: '2021 - 2022',
+                                duties: [
+                                    'Focused on fixing UI bugs, design inconsistencies, and improving overall app based on operational feedback.',
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'RideHero, Inc.',
+                        link: 'https://www.facebook.com/rideheroph/',
+                        roles: [
+                            {
+                                name: 'UI/UX Designer',
+                                duration: '2020',
+                                duties: [
+                                    'Collaborated with RideHero design team to build multiple products.',
+                                    'Designed RideHero - a ride hailing app targeted to buses and jeepneys.',
+                                    'Designed Aguila - an item delivery app to compete with top delivery apps in Cebu.',
+                                    'Designed Discover Cebu - a mobile app that promotes tourism in Cebu, Philippines.'
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'Symph',
+                        link: 'https://www.symph.co/',
+                        roles: [
+                            {
+                                name: 'Web Design Intern',
+                                duration: '2019',
+                                duties: [
+                                'Studied fundamentals of web development and UI design.',
+                                    'Worked on MATA Project – facial recognition application with a team of developers and project managers.'
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'University of San Carlos',
+                        link: 'https://www.usc.edu.ph/academics/schools/school-of-engineering/department-of-computer-engineering',
+                        roles: [
+                            {
+                                name: 'Bachloer of Science in Computer Engineering',
+                                duration: '2015 - 2020',
+                                duties: [
+                                    'Studied hardware concepts and software fundamentals. Studied hardware concepts and software fundamentals.'
+                                ]
+                            }
+                        ]
+                    }
                 ]
             };
+        },
+
+        methods: {
+            goToLink(href) {
+                window.open(href, '_blank');
+            }
         }
     }
 </script>
@@ -176,6 +232,18 @@
             &-name {
                 text-decoration: underline;
                 text-transform: uppercase;
+                color: $white;
+                font-size: 24px;
+                cursor: pointer;
+
+                @media #{$tablet} {
+                    font-size: 20px;
+                }
+            }
+
+            &-content {
+                @include flex-column();
+                gap: 24px;
             }
 
             .role {
