@@ -1,5 +1,24 @@
 <template>
-    <ContentBody>
+    <div
+        :class="showDiv ? 'show' : ''"
+        class="avatar-sticky-container"
+    >
+        <div class="avatar-sticky">
+            <img
+                alt="Drix"
+                src="https://avatars.githubusercontent.com/u/50797860?v=4"
+            >
+            <div class="avatar-sticky__information">
+                <h4 class="bold">
+                    Drix Lloyd Ponteres
+                </h4>
+                <p class="t-sm">
+                    hello@drix.dev
+                </p>
+            </div>
+        </div>
+    </div>
+    <ContentBody v-scroll="handleScroll">
         <main class="two-grid">
             <section class="left">
                 <div class="avatar">
@@ -132,7 +151,7 @@
             return {
                 specialties: [
                     'Vue.js','HTML','CSS','Figma','UI Design','User Experience',
-                    'Adobe Suite Tools','MJML','Email Design','Bootstrap','Vuetify'
+                    'Logo Design', 'Graphic Design','Adobe Suite Tools','MJML','Email Design','Bootstrap','Vuetify'
                 ],
                 others: [
                     'Planning','Leadership','Product Vision','Agile Practices','Continuous Learning'
@@ -187,6 +206,34 @@
                         ]
                     },
                     {
+                        name: '24Strats',
+                        link: 'https://www.linkedin.com/company/24strats/about/',
+                        roles: [
+                            {
+                                name: 'Designer',
+                                duration: '2022',
+                                duties: [
+                                    'Designed a website for a Turkish parish church.',
+                                    'Created logo and branding for Protein Partner PH.',
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        name: 'DEVCON Cebu',
+                        link: 'https://www.facebook.com/devconcebu/',
+                        roles: [
+                            {
+                                name: 'VP Creatives',
+                                duration: '2022-2024',
+                                duties: [
+                                    'Design pubmats and event posters to be posted in social media.',
+                                    'Volunteered in code camps and workshops.',
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         name: 'RideHero, Inc.',
                         link: 'https://www.facebook.com/rideheroph/',
                         roles: [
@@ -230,13 +277,39 @@
                             }
                         ]
                     }
-                ]
+                ],
+                showDiv: false,
+                yPositionToShowDiv: 120
             };
         },
 
         methods: {
             goToLink(href) {
                 window.open(href, '_blank');
+            },
+
+            handleScroll() {
+                const y = window.scrollY;
+                if (y >= this.yPositionToShowDiv) {
+                    this.showDiv = true;
+                } else {
+                    this.showDiv = false;
+                }
+            }
+        },
+
+        mounted() {
+            window.addEventListener("scroll", this.handleScroll);
+        },
+
+        beforeUnmount() {
+            window.removeEventListener("scroll", this.handleScroll);
+        },
+
+        computed: {
+            isMobile() {
+                // Check if the viewport width is less than a certain breakpoint (e.g., 768px for common mobile devices)
+                return window.innerWidth < 768; // Adjust the breakpoint as needed
             }
         }
     }
@@ -263,7 +336,13 @@
     .left {
         @include flex-column();
         gap: 32px;
+        height: max-content;
         position: sticky;
+        top: 140px;
+
+        @media #{$tablet} {
+            position: unset;
+        }
 
         .avatar {
             display: flex;
@@ -336,9 +415,15 @@
                     color: $white;
                     font-size: 24px;
                     cursor: pointer;
+                    width: max-content;
+                    transition: .2s all ease-in-out;
 
                     @media #{$tablet} {
                         font-size: 20px;
+                    }
+
+                    &:hover {
+                        color: $gray-500;
                     }
                 }
 
@@ -361,6 +446,52 @@
                     }
                 }
             }
+        }
+    }
+
+    .avatar-sticky-container {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: none;
+        opacity: 0;
+        transition: .2s all ease-in-out;
+
+        @media #{$tablet} {
+            display: block;
+        }
+
+        &.show {
+            opacity: 1;
+        }
+    }
+
+    .avatar-sticky {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: $white;
+        padding: 12px 150px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        transition: .1s all ease-in-out;
+
+        @media #{$mobile} {
+            padding: 12px 20px;
+        }
+
+        img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        &__information {
+            @include flex-column;
+            gap: 2px;
         }
     }
 
