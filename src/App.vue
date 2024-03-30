@@ -1,7 +1,10 @@
 <template>
     <div class="content">
         <Navbar @toggle-menu="menuHandler"/>
-        <OverlayMenu :show-menu="showMenu" />
+        <OverlayMenu
+            :show-menu="showMenu"
+            @close="showMenu = false"
+        />
         <router-view />
     </div>
 </template>

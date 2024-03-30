@@ -4,15 +4,24 @@
             <li>
                 <p class="p-h3 regular c-tertiary">Menu</p>
             </li>
-            <li class="menu-list__item">
+            <li
+                class="menu-list__item"
+                @click="changeRoute('/works')"
+            >
                 <p class="p-h1 regular">Works</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </li>
-            <li class="menu-list__item">
+            <li
+                class="menu-list__item"
+                @click="changeRoute('/resume')"
+            >
                 <p class="p-h1 regular">Resume</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </li>
-            <li class="menu-list__item">
+            <li
+                class="menu-list__item"
+                @click="changeRoute('/')"
+            >
                 <p class="p-h1 regular">Contact</p>
                 <i class="fa-solid fa-arrow-right"></i>
             </li>
@@ -28,6 +37,14 @@
         props: {
             showMenu: Boolean
         },
+
+        methods: {
+            changeRoute(route) {
+                // Use router.push to navigate to the specified route
+                this.$router.push(route);
+                this.$emit('close')
+            }
+        }
     }
 </script>
 
