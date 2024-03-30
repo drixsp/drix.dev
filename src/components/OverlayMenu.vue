@@ -40,7 +40,6 @@
 
         methods: {
             changeRoute(route) {
-                // Use router.push to navigate to the specified route
                 this.$router.push(route);
                 this.$emit('close')
             }
@@ -68,7 +67,7 @@
         right: 0;
         z-index: 1000;
         height: calc(100vh - 60px);
-        backdrop-filter: blur(50px);
+        backdrop-filter: blur(100px);
         background: rgba(0,0,0,.2);
 
         .menu-list {
