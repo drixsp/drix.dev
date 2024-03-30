@@ -7,19 +7,27 @@
                 </p>
             </li>
             <li>
-                <div
+                <Button
                     @click="$emit('toggle-menu')"
-                    class="circle">
-                </div>
+                    class="transparent"
+                >
+                    Menu
+                </Button>
             </li>
         </ul>
     </nav>
 </template>
 
 <script>
+    import Button from '../components/generics/Button.vue';
+
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
-        name: 'Navbar'
+        name: 'Navbar',
+
+        components: {
+            Button
+        }
     }
 </script>
 

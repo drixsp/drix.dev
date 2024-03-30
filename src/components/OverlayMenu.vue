@@ -6,23 +6,23 @@
             </li>
             <li
                 class="menu-list__item"
+                @click="changeRoute('/')"
+            >
+                <h2 class="h1-alt p-h2 regular">Home</h2>
+                <i class="fa-solid fa-arrow-right"></i>
+            </li>
+            <li
+                class="menu-list__item"
                 @click="changeRoute('/works')"
             >
-                <p class="p-h1 regular">Works</p>
+                <h2 class="h1-alt p-h2 regular">Works</h2>
                 <i class="fa-solid fa-arrow-right"></i>
             </li>
             <li
                 class="menu-list__item"
                 @click="changeRoute('/resume')"
             >
-                <p class="p-h1 regular">Resume</p>
-                <i class="fa-solid fa-arrow-right"></i>
-            </li>
-            <li
-                class="menu-list__item"
-                @click="changeRoute('/')"
-            >
-                <p class="p-h1 regular">Contact</p>
+                <h2 class="h1-alt p-h2 regular">Resume</h2>
                 <i class="fa-solid fa-arrow-right"></i>
             </li>
         </ul>
@@ -62,22 +62,26 @@
 
     .overlay-menu {
         transition: 0.3s all ease-in-out;
-        position: absolute;
+        position: fixed;
         left: 0;
         right: 0;
         z-index: 1000;
         height: calc(100vh - 60px);
-        backdrop-filter: blur(100px);
-        background: rgba(0,0,0,.2);
+        backdrop-filter: blur(80px);
+        background: rgba($color: $black, $alpha: 0.75);
 
         .menu-list {
             @include flex-column();
-            gap: 24px;
+            gap: 16px;
             margin: 40px auto 0;
             width: 320px;
 
             @media #{$mobile} {
                 width: calc(100vw - 60px);
+            }
+
+            p {
+                text-align: center;
             }
 
             &__item {
@@ -92,14 +96,19 @@
 
                 i {
                     font-size: 24px;
-                    transform: translateX(-12px);
+                    transform: translateX(-8px);
+                    transition: .2s all ease-in-out;
+                }
+
+                h2 {
+                    text-transform: uppercase;
                 }
 
                 &:hover {
                     background: rgba(255, 255, 255, 0.1);
 
                     i {
-                        transition: .2s all ease-in-out;
+                        // transition: .2s all ease-in-out;
                         transform: translateX(4px);
                     }
                 }

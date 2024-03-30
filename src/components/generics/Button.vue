@@ -72,7 +72,7 @@
             color: $white;
 
             &:hover {
-                background: darken(#A1BAD0, 5%);
+                background: rgba($color: #A1BAD0, $alpha: 0.1);
             }
         }
     }

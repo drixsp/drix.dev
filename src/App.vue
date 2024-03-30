@@ -3,7 +3,7 @@
         <Navbar @toggle-menu="menuHandler"/>
         <OverlayMenu
             :show-menu="showMenu"
-            @close="showMenu = false"
+            @close="closeMenu"
         />
         <router-view />
     </div>
@@ -30,7 +30,16 @@
         methods: {
             menuHandler() {
                 this.showMenu = !this.showMenu;
-                console.log(this.showMenu)
+                if (this.showMenu) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            },
+
+            closeMenu() {
+                this.showMenu = false;
+                document.body.style.overflow = 'auto';
             }
         }
     }
