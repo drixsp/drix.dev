@@ -1,18 +1,26 @@
-export default {
-    path: '/',
-    name: 'home',
-    // component: () => import('src/pages/Home.vue'),
-    meta: {
-        title: 'Drix',
+import { createRouter, createWebHistory } from 'vue-router';
+import Home from '/src/pages/Home.vue';
+import Works from '/src/pages/Works.vue';
+import Resume from '/src/pages/Resume.vue';
+
+const routes = [
+    {
+        path: '/',
+        component: Home,
     },
-    children: [
-        {
-            path: '/works',
-            name: 'works',
-            // component: () => import('src/pages/Works.vue'),
-            meta: {
-                title: 'Works',
-            }
-        }
-    ]
-};
+    {
+        path: '/works',
+        component: Works,
+    },
+    {
+        path: '/resume',
+        component: Resume,
+    }
+  ];
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+  });
+
+export default router;

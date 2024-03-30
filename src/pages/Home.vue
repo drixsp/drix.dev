@@ -1,4 +1,5 @@
 <template>
+    <!-- <OverlayMenu /> -->
     <ContentBody>
         <div class="section">
             <header class="section-top">
@@ -47,14 +48,16 @@
 </template>
 
 <script>
-    import ContentBody from '../components/generics/ContentBody.vue'
+    import ContentBody from '../components/generics/ContentBody.vue';
+    // import OverlayMenu from '/src/components/OverlayMenu.vue';
 
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
         name: 'Home',
 
         components: {
-            ContentBody
+            ContentBody,
+            // OverlayMenu
         },
 
         methods: {

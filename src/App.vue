@@ -1,19 +1,17 @@
 <template>
     <div class="content">
         <Navbar />
-        <WorksDetails />
+        <router-view />
     </div>
 </template>
 
 <script>
     import Navbar from './components/Navbar.vue'
-    import WorksDetails from './pages/WorksDetails.vue'
 
     export default {
         name: 'App',
         components: {
-            Navbar,
-            WorksDetails,
+            Navbar
         }
     }
 </script>
