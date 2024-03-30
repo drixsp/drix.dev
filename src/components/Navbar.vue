@@ -7,7 +7,10 @@
                 </p>
             </li>
             <li>
-                <div class="circle"></div>
+                <div
+                    @click="$emit('toggle-menu')"
+                    class="circle">
+                </div>
             </li>
         </ul>
     </nav>
@@ -21,6 +24,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import 'src/stylesheets/styles.scss';
+
     #nav {
         padding: 0 150px;
         height: 60px;
@@ -53,7 +58,8 @@
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: white;
+            background: $white;
+            cursor: pointer;
         }
     }
 </style>

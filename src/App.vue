@@ -1,17 +1,34 @@
 <template>
     <div class="content">
-        <Navbar />
+        <Navbar @toggle-menu="menuHandler"/>
+        <OverlayMenu :show-menu="showMenu" />
         <router-view />
     </div>
 </template>
 
 <script>
     import Navbar from './components/Navbar.vue'
+    import OverlayMenu from '/src/components/OverlayMenu.vue';
 
     export default {
         name: 'App',
+
         components: {
-            Navbar
+            Navbar,
+            OverlayMenu
+        },
+
+        data() {
+            return {
+                showMenu: false
+            };
+        },
+
+        methods: {
+            menuHandler() {
+                this.showMenu = !this.showMenu;
+                console.log(this.showMenu)
+            }
         }
     }
 </script>
