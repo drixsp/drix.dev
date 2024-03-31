@@ -72,8 +72,8 @@
 </template>
 
 <script>
-    import ContentBody from '../components/generics/ContentBody.vue';
-    import Button from '../components/generics/Button.vue';
+    import ContentBody from '/src/components/generics/ContentBody.vue';
+    import Button from '/src/components/generics/Button.vue';
 
     export default {
         // eslint-disable-next-line vue/multi-word-component-names

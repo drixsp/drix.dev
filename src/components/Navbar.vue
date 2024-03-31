@@ -1,15 +1,15 @@
 <template>
     <nav id="nav">
         <ul>
-            <li>
-                <p>
-                    DP
-                </p>
+            <li class="nav-item">
+                <h1 class="h1-alt nav-item__left">
+                    hello@drix.dev
+                </h1>
             </li>
             <li>
                 <Button
                     @click="$emit('toggle-menu')"
-                    class="transparent"
+                    class="transparent nav-item__right"
                 >
                     Menu
                 </Button>
@@ -57,17 +57,10 @@
             justify-content: space-between;
             color: white;
 
-            p {
-                font-size: 20px;
+            h1 {
+                font-size: 12px;
+                text-transform: uppercase;
             }
-        }
-
-        .circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: $white;
-            cursor: pointer;
         }
     }
 </style>
