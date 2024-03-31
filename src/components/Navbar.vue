@@ -37,7 +37,7 @@
     #nav {
         padding: 0 150px;
         height: 60px;
-        background: rgba(247, 250, 252, .05);
+        background: rgba(247, 250, 252, .1);
         backdrop-filter: blur(50px);
         display: flex;
         align-items: center;

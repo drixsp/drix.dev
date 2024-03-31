@@ -5,6 +5,7 @@
             :show-menu="showMenu"
             @close="closeMenu"
         />
+        <Background />
         <router-view />
     </div>
 </template>
@@ -12,13 +13,15 @@
 <script>
     import Navbar from './components/Navbar.vue'
     import OverlayMenu from '/src/components/OverlayMenu.vue';
+    import Background from '/src/components/Background.vue';
 
     export default {
         name: 'App',
 
         components: {
             Navbar,
-            OverlayMenu
+            OverlayMenu,
+            Background
         },
 
         data() {
