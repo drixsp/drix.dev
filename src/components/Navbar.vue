@@ -1,30 +1,43 @@
 <template>
     <nav id="nav">
         <ul>
-            <li>
-                <p>
-                    DP
-                </p>
+            <li class="nav-item">
+                <h1 class="h1-alt nav-item__left">
+                    hello@drix.dev
+                </h1>
             </li>
             <li>
-                <div class="circle"></div>
+                <Button
+                    @click="$emit('toggle-menu')"
+                    class="transparent nav-item__right"
+                >
+                    Menu
+                </Button>
             </li>
         </ul>
     </nav>
 </template>
 
 <script>
+    import Button from '../components/generics/Button.vue';
+
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
-        name: 'Navbar'
+        name: 'Navbar',
+
+        components: {
+            Button
+        }
     }
 </script>
 
 <style lang="scss" scoped>
+    @import 'src/stylesheets/styles.scss';
+
     #nav {
         padding: 0 150px;
         height: 60px;
-        background: rgba(247, 250, 252, .05);
+        background: rgba(247, 250, 252, .1);
         backdrop-filter: blur(50px);
         display: flex;
         align-items: center;
@@ -44,16 +57,10 @@
             justify-content: space-between;
             color: white;
 
-            p {
-                font-size: 20px;
+            h1 {
+                font-size: 12px;
+                text-transform: uppercase;
             }
-        }
-
-        .circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: white;
         }
     }
 </style>
