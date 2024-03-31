@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import Button from '../components/generics/Button.vue';
+    import Button from '/src/components/generics/Button.vue';
 
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
