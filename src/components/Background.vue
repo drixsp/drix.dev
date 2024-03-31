@@ -21,7 +21,6 @@
         position: absolute;
         margin: auto;
         width: 100vw;
-        max-width: 100vw;
         top: 0;
         height: 100%;
         overflow: hidden;

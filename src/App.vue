@@ -58,7 +58,7 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         position: absolute;
-        width: 100%;
+        width: 100vw;
         z-index: 2;
     }
 </style>
