@@ -1,11 +1,52 @@
 <template>
-    <router-view></router-view>
+    <ContentBody>
+        <!-- Header Content -->
+        <header class="cover">
+            <!-- Project Image -->
+            <slot class="image" name="image"></slot>
+            <!-- Project Title -->
+            <h2 class="title semibold">
+                <slot name="title"></slot>
+            </h2>
+            <!-- Project Tags -->
+            <div class="tags-container">
+                <slot name="tags"></slot>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main">
+            <slot name="content"></slot>
+        </main>
+    </ContentBody>
 </template>
 
 <script>
+    import ContentBody from '/src/components/generics/ContentBody.vue';
 
     export default {
-        name: 'WorksDetails',
+        name: 'WorkDetailsContainer',
+
+        components: {
+            ContentBody
+        },
+
+        data() {
+            return {
+                data: {},
+                tags: [
+                    'UX Design',
+                    'Design',
+                    'UI/UX',
+                    '2 more...',
+                    'Case Study',
+                    'CSS',
+                    'Frontend Development',
+                    'Graphic Design',
+                    'Branding Design'
+                ]
+            };
+        },
     }
 </script>
 
@@ -41,7 +82,7 @@
             max-width: 600px;
         }
 
-        img {
+        ::v-deep img {
             position: absolute;
             left: 0;
             right: 0;
@@ -51,6 +92,8 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            opacity: .3;
+            filter: blur(5px);
         }
 
         .tags-container {
@@ -60,6 +103,10 @@
             margin-top: 8px;
             max-width: 80%;
 
+            ::-webkit-scrollbar {
+                display: none;
+            }
+
             @media #{$tablet} {
                 overflow-x: scroll;
                 flex-wrap: unset;
@@ -67,7 +114,7 @@
                 width: 100%;
             }
 
-            .tag {
+            ::v-deep .tag {
                 background:rgba(255,255,255, 0.5);
                 color: $white;
                 border-radius: 4px;
@@ -80,6 +127,8 @@
 
     .container {
         padding-top: calc($navbar-height + $cover-height);
+        min-height: calc(100vh - 60px);
+        // border: 4px dashed red;
 
         @media #{$tablet} {
             padding-top: calc($navbar-height + $cover-height-mobile);
@@ -118,7 +167,7 @@
         }
     }
 
-    p {
+    ::v-deep .main p {
         line-height: 1.5;
         text-align: justify;
     }

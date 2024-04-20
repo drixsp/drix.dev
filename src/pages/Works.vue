@@ -27,6 +27,7 @@
                 </div>
             </li>
         </ul>
+        <router-view></router-view>
     </ContentBody>
 </template>
 
