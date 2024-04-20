@@ -7,6 +7,7 @@ import WorksDetails from '/src/pages/WorksDetails.vue';
 // DEVCON Projects
 import DEVCON_Project_1 from '/src/works/DEVCON_Project_1.vue';
 import DEVCON_Project_2 from '/src/works/DEVCON_Project_2.vue';
+import DEVCON_Project_3 from '/src/works/DEVCON_Project_3.vue';
 
 // 24Strats Projects
 
@@ -36,6 +37,10 @@ const routes = [
         {
           path: 'devcon/2',
           component: DEVCON_Project_2,
+        },
+        {
+          path: 'devcon/3',
+          component: DEVCON_Project_3,
         },
       ]
     },

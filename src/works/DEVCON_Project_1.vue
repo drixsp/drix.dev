@@ -1,7 +1,7 @@
 <template>
     <WorkDetailsContainer>
         <template #image>
-            <img src="https://i.postimg.cc/gkwWd92z/devcon-cebu-officers-graphic.png" alt="DEVCON Cebu 2023">
+            <img src="/assets/devcon/devcon-cebu-officers-graphic.png" alt="DEVCON Cebu 2023">
         </template>
 
         <template #title>

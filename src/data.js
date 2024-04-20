@@ -2,24 +2,19 @@
 export const portfolioData = [
     {
         id: 1,
-        image: 'https://i.postimg.cc/gkwWd92z/devcon-cebu-officers-graphic.png',
+        image: 'assets/devcon/devcon-cebu-officers-graphic.png',
         title: 'Kickstarting DEVCON Cebu 2023: Showcasing Chapter Officers',
         project: 'devcon',
         description: `As a preview of the officers of DEVCON Cebu for the year 2023, I designed a pubmat graphic
                     highlighting each officers anticipated role within the organization, providing a comprehensive
                     overview of the team set to lead DEVCON Cebu in that year.`,
         tags: [
-            'UX Design',
-            'UI/UX',
-            'Case Study',
-            'CSS',
-            'Frontend Development',
             'Graphic Design',
         ],
       },
       {
         id: 2,
-        image: 'https://i.postimg.cc/QxWLBRKf/dc-04-2023-code-camp.png',
+        image: 'assets/devcon/dc-04-2023-code-camp.png',
         title: 'Designing for DEVCON Kids April 2023 Code Camp',
         project: 'devcon',
         description: `Taking place on Saturday, April 22, 2023, this DEVCON event was designed to immerse children
@@ -27,12 +22,18 @@ export const portfolioData = [
                     Spearheaded by DEVCON Cebu officers, the event not only facilitated gameplay but also served as an educational
                     avenue for teaching programming fundamentals in an engaging manner.`,
         tags: [
-            'UX Design',
-            'Design',
-            'UI/UX',
-            'Case Study',
-            'CSS',
-            'Frontend Development',
+            'Graphic Design',
+        ],
+      },
+      {
+        id: 3,
+        image: 'assets/devcon/dc-09-2023-geek-up.png',
+        title: 'Connecting Through Tech: DEVCON Cebu September 2023 Geek Up',
+        project: 'devcon',
+        description: `On September 9, 2023, DEVCON Cebu hosted an engaging online Geek Up event, aiming to foster connections
+                      among professionals. This session featured Mr. Jacob Silva, an esteemed tech expert, who delved
+                      into essential cybersecurity concepts.`,
+        tags: [
             'Graphic Design',
         ],
       }
