@@ -27,33 +27,40 @@
                 </div>
                 <ul class="work-list">
                     <li
-                        v-for="i in imageLinks"
-                        :key="i"
+                        v-for="data in portfolio"
+                        :key="data"
                         class="work-list__item"
+                        @click="goToRoute(data)"
                     >
                         <div class="work-list__item-image">
                             <!-- @dev TODO: Dynamic image and alt should be contextual -->
-                            <img :src="i">
+                            <img :src="data.image">
                         </div>
                         <p class="work-list__item-title semibold">
-                            ElevateEase: Streamlining User Journeys for Seamless Experiences and Lorem ipsum dolor sit amet
+                            {{ data.title }}
                         </p>
                         <p class="work-list__item-description t-semi-sm">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore do eiusmod tempor incididunt ut labore
+                            {{  data.description }}
                         </p>
                         <div class="work-list__item-tags">
                             <p
-                                v-for="tag in tags"
-                                :key="tag"
+                                v-for="(item, index) in data.tags.slice(0, 3)"
+                                :key="index"
                                 class="tag t-tiny"
                             >
-                                {{ tag }}
+                                {{ item }}
+                            </p>
+                            <p
+                                v-if="data.tags.length > 3"
+                                class="tag t-tiny"
+                            >
+                                {{ data.tags.length - 3 }} more
                             </p>
                         </div>
                     </li>
                 </ul>
                 <Button
-                    @click="changeRoute('/works')"
+                    @click="goToWorks"
                     class="primary"
                 >
                     Click here to see more!
@@ -75,6 +82,8 @@
     import ContentBody from '/src/components/generics/ContentBody.vue';
     import Button from '/src/components/generics/Button.vue';
 
+    import { portfolioData } from '/src/data.js'
+
     export default {
         // eslint-disable-next-line vue/multi-word-component-names
         name: 'Home',
@@ -86,33 +95,29 @@
 
         data() {
             return {
-                imageLinks: [
-                    'https://via.placeholder.com/800x600',
-                    'https://via.placeholder.com/1200x800',
-                    'https://via.placeholder.com/600x400',
-                    'https://avatars.githubusercontent.com/u/50797860?v=4',
-                    'https://via.placeholder.com/1000x500',
-                    'https://via.placeholder.com/400x800'
-                ],
-                tags: [
-                    'UX Design',
-                    'Design',
-                    'UI/UX',
-                    '2 more...',
-                    // 'Case Study',
-                    // 'CSS',
-                    // 'Frontend Development',
-                    // 'Graphic Design',
-                    // 'Branding Design'
-                ]
+                portfolio: portfolioData
             };
         },
 
         methods: {
-            changeRoute(route) {
-                this.$router.push(route);
+            goToWorks() {
+                this.$router.push({ name: 'Works' });
+            },
+
+            shortenedItems(item) {
+                if (item.length > 3) {
+                    return item.slice(0, 3).join(', ') + ` and ${item.length - 3} more`;
+                } else {
+                    return item.join(', ');
+                }
+            },
+
+            goToRoute(data) {
+                const route = `/works/${data.project}/${data.id}`;
+
+                this.$router.push(route)
             }
-        }
+        },
     }
 </script>
 

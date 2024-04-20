@@ -1,65 +1,11 @@
 <template>
-    <ContentBody>
-        <header class="cover">
-            <img src="https://picsum.photos/id/2/900/1900" alt="">
-            <h2 class="title semibold">
-                ElevateEase: Streamlining User Journeys for Seamless Experiences
-            </h2>
-            <div class="tags-container">
-                <p
-                    v-for="tag in tags"
-                    :key="tag"
-                    class="tag t-tiny"
-                >
-                    {{ tag }}
-                </p>
-            </div>
-        </header>
-        <main class="main">
-            <p class="main__text t-regular">
-                With this project, I embarked on a creative journey to seamlessly blend innovation and functionality. From concept to execution, I meticulously crafted a solution that not only meets the client's objectives but also surpasses expectations. Through strategic decision-making and a keen eye for design, I successfully navigated challenges, delivering a final product that stands as a testament to my commitment to excellence. This portfolio showcases not only my technical skills but also my ability to translate ideas into tangible, impactful results. Explore the diverse range of projects within, each telling a unique story of problem-solving, creativity, and a relentless pursuit of quality.
-
-                With this project, I embarked on a creative journey to seamlessly blend innovation and functionality. From concept to execution, I meticulously crafted a solution that not only meets the client's objectives but also surpasses expectations. Through strategic decision-making and a keen eye for design, I successfully navigated challenges, delivering a final product that stands as a testament to my commitment to excellence. This portfolio showcases not only my technical skills but also my ability to translate ideas into tangible, impactful results. Explore the diverse range of projects within, each telling a unique story of problem-solving, creativity, and a relentless pursuit of quality.
-            </p>
-            <div class="main__image-attachment">
-                <img src="https://picsum.photos/id/123/456" alt="">
-            </div>
-            <p class="main__text t-regular">
-                With this project, I embarked on a creative journey to seamlessly blend innovation and functionality. From concept to execution, I meticulously crafted a solution that not only meets the client's objectives but also surpasses expectations. Through strategic decision-making and a keen eye for design, I successfully navigated challenges, delivering a final product that stands as a testament to my commitment to excellence. This portfolio showcases not only my technical skills but also my ability to translate ideas into tangible, impactful results. Explore the diverse range of projects within, each telling a unique story of problem-solving, creativity, and a relentless pursuit of quality.
-
-                With this project, I embarked on a creative journey to seamlessly blend innovation and functionality. From concept to execution, I meticulously crafted a solution that not only meets the client's objectives but also surpasses expectations. Through strategic decision-making and a keen eye for design, I successfully navigated challenges, delivering a final product that stands as a testament to my commitment to excellence. This portfolio showcases not only my technical skills but also my ability to translate ideas into tangible, impactful results. Explore the diverse range of projects within, each telling a unique story of problem-solving, creativity, and a relentless pursuit of quality.
-            </p>
-            <div class="main__image-attachment">
-                <img src="https://picsum.photos/id/8/600/200" alt="">
-            </div>
-        </main>
-    </ContentBody>
+    <router-view></router-view>
 </template>
 
 <script>
-    import ContentBody from '/src/components/generics/ContentBody.vue';
 
     export default {
         name: 'WorksDetails',
-
-        components: {
-            ContentBody
-        },
-
-        data() {
-            return {
-                tags: [
-                    'UX Design',
-                    'Design',
-                    'UI/UX',
-                    'Case Study',
-                    'CSS',
-                    'Frontend Development',
-                    'Graphic Design',
-                    'Branding Design'
-                ]
-            };
-        }
     }
 </script>
 
