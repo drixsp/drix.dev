@@ -42,15 +42,7 @@
             return {
                 data: {},
                 tags: [
-                    'UX Design',
-                    'Design',
-                    'UI/UX',
-                    '2 more...',
-                    'Case Study',
-                    'CSS',
-                    'Frontend Development',
                     'Graphic Design',
-                    'Branding Design'
                 ]
             };
         },

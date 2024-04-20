@@ -44,14 +44,7 @@
             return {
                 data: {},
                 tags: [
-                    'UX Design',
-                    'Design',
-                    'UI/UX',
-                    'Case Study',
-                    'CSS',
-                    'Frontend Development',
                     'Graphic Design',
-                    'Branding Design'
                 ]
             };
         },
